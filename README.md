@@ -1,3 +1,3 @@
-# java
+# Java
 
-##Algorithmes et exercices en Java.
+## Algorithmes et exercices en Java.
