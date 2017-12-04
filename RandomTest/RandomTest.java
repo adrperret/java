@@ -1,4 +1,4 @@
-package randomTest;
+//package randomTest;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -72,6 +72,18 @@ public class RandomTest {
         npp.setMapPlaces(String.valueOf(rang), (npp.getMapPlaces().get(String.valueOf(rang))+1));
     }
     
+    public void afficherOccurences(int sum, int moy, Entry<String, NbPrPlace> map) {
+        for(int val : map.getValue().getMapPlaces().values()) {
+            sum += val;
+        }
+        
+        moy = sum/map.getValue().getMapPlaces().size();
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        
+        System.out.println("\nMoyenne des occurences par rang :".concat(String.valueOf(numberFormat.format(moy))));
+        System.out.println("Occurences de "+ map.getKey() + " selon le rang de tirage\n"+map);
+    }
+    
     public void occurence(int nbTirages) {
         for( int i=0; i<nbTirages; i++) {
             rang = 1;
@@ -125,7 +137,10 @@ public class RandomTest {
 
         for(Entry<String, NbPrPlace> map : mapLettresObjet.entrySet()) {
             ////DEBUT FONCTION, que faire des variables hors boucle for ci-dessus
-            for(int val : map.getValue().getMapPlaces().values()) {
+            
+            afficherOccurences(sum, moy, map);
+            
+           /* for(int val : map.getValue().getMapPlaces().values()) {
                 sum += val;
             }
             
@@ -133,7 +148,7 @@ public class RandomTest {
             DecimalFormat numberFormat = new DecimalFormat("#.00");
             
             System.out.println("\nMoyenne des occurences par rang :".concat(String.valueOf(numberFormat.format(moy))));
-            System.out.println("Occurences de "+ map.getKey() + " selon le rang de tirage\n"+map);
+            System.out.println("Occurences de "+ map.getKey() + " selon le rang de tirage\n"+map);*/
             ////FIN FONCTION
             
             ////DEBUT FONCTION
